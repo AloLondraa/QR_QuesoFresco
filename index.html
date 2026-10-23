@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EcoAhorro | Queso fresco</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f1f7f2;color:#183b29;margin:0;padding:18px}
+main{max-width:480px;margin:auto}
+header{background:#147a45;color:white;padding:20px;border-radius:18px}
+h1{margin:5px 0} .card{background:white;border-radius:16px;padding:18px;margin:14px 0;box-shadow:0 3px 12px #0001}
+.label{color:#607267;font-size:14px}
+.days{font-size:30px;color:#147a45;font-weight:bold;margin:10px 0}
+.status{background:#e8f6ec;padding:14px;border-radius:12px}
+.warning{background:#fff2d6;padding:13px;border-radius:12px;font-size:14px}
+</style>
+</head>
+<body><main>
+<header><div>EcoAhorro · INFORMACIÓN DEL PRODUCTO</div>
+<h1>Queso fresco</h1><p>Consulta antes de decidir tu compra.</p></header>
+<section class="card">
+<div class="label">LOTE DE DEMOSTRACIÓN</div><h2>QF-001</h2>
+<div class="label">Fecha de vencimiento ficticia</div><h3>30 de octubre de 2026</h3>
+<div class="status"><b>Tiempo hasta el vencimiento registrado</b>
+<div class="days" id="days">Calculando…</div>
+<div id="detail"></div></div>
+</section>
+<section class="card"><h2>Conservación</h2>
+Mantener refrigerado según las indicaciones del fabricante. La temperatura real de este producto no ha sido medida.</section>
+<section class="card"><h2>¿Qué te recomendamos?</h2>
+<ul><li>Comprueba la fecha del empaque.</li>
+<li>Verifica que se haya conservado correctamente.</li>
+<li>No te bases solo en la apariencia para determinar si es seguro consumirlo.</li></ul>
+</section>
+<div class="warning"><b>Prototipo académico:</b> producto, lote y fecha ficticios. El contador calcula días hasta la fecha registrada; no confirma frescura ni inocuidad.</div>
+<p style="text-align:center">Más información para decidir mejor.</p>
+</main>
+<script>
+const fecha=new Date('2026-10-30T23:59:59');
+const dias=Math.ceil((fecha-new Date())/86400000);
+document.getElementById('days').textContent=dias>1?'Quedan '+dias+' días':dias===1?'Queda 1 día':dias===0?'La fecha registrada es hoy':'Fecha de prueba superada';
+document.getElementById('detail').textContent=dias>0?'Cálculo basado únicamente en la fecha ficticia.':'Verifica siempre la fecha real del empaque y las condiciones de conservación.';
+</script>
+</body></html>
